@@ -1,9 +1,5 @@
 import axios from "axios";
 
-import Gift from './assets/gift.svg';
-import Star from './assets/star.svg';
-
-
 export class Tawk {
     constructor({ position = 'bottom-right'}) {
         this.position = this.getPosition(position);
@@ -13,8 +9,8 @@ export class Tawk {
         this.getGrowthTool = this.getGrowthTool();
         this.getBrand      = this.getBrand();
         this.createStyles();
-        this.GiftIcon = Gift;
-        this.StarIcon = Star;
+        this.GiftIcon     = window.location.origin + '/gift.da32ac1e.svg';
+        this.StarIcon     = window.location.origin + '/star.7e46d871.svg';
         this.brand        = {};
         this.growthTool   = {};
         this.brandDetails = document.currentScript.getAttribute('brand').split('&')
@@ -223,12 +219,10 @@ export class Tawk {
     
             .widgetBox{
                 width        : 380px;
-                margin-bottom: 5%;
                 border-radius: 4px;
             }
     
             .upperBox{
-                background   : #F5F5F5;
                 box-shadow   : 0px 4px 6px rgba(0, 0, 0, 0.08);
                 border-radius: 4px;
                 padding      : 20px;
@@ -286,6 +280,7 @@ export class Tawk {
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 16px;
+                letter-spacing: 0.1px;
             }
             
             .BodyB16R {
@@ -316,6 +311,12 @@ export class Tawk {
                 align-items : center;
             }
 
+            .bottomIcon{
+                height: 20px;
+                width : 20px;
+                margin-right: 8px;
+            }
+
         `.replace(/^\s+|\n/gm, '');
         document.head.appendChild(styleTag);
     }
@@ -323,28 +324,40 @@ export class Tawk {
     applyThemeChange(){
         // console.log('---> ',   document.getElementById('joinHeading'))
         if(this.growthTool.widget.theme == 'light'){
-            document.getElementById         ('joinHeading').style.color         = "#ffffff"
-            document.getElementById         ('brandName').style.color           = "#ffffff"
-            document.getElementsByClassName('topBox')[0].style.background       = 'rgb(245, 245, 245)'
+            document.getElementById         ('joinHeading').style.color         = "#000000"
+            document.getElementById         ('brandName').style.color           = "#000000"
             document.getElementsByClassName('lowerBox')[0].style.background     = 'rgb(245, 245, 245)'
             document.getElementsByClassName('bottomBox')[0].style.background    = '#ffffff'
             document.getElementsByClassName('upperDescription')[0].style.color  = 'rgb(89, 97, 115)'
             document.getElementsByClassName('upperDescription')[1].style.color  = 'rgb(89, 97, 115)'
             document.getElementsByClassName('alreadyRegistered')[0].style.color = 'rgb(89, 97, 115)'
-            
+            document.getElementsByClassName('ways')[0].style.color              = 'rgb(89, 97, 115)'
+            document.getElementsByClassName('ways')[1].style.color              = 'rgb(89, 97, 115)'
+            document.getElementsByClassName('upperBox')[0].style.background     = '#F5F5F5'
+            document.getElementsByClassName('upperTitle')[0].style.color        = 'rgb(20, 21, 25)'
+            document.getElementsByClassName('upperTitle')[1].style.color        = 'rgb(20, 21, 25)'
         }
+
         else{
-            document.getElementById('joinHeading').style.color = "#000000"
-            document.getElementById('brandName').style.color   = "#000000"
-            document.getElementsByClassName('topBox')[0].style.background = 'rgb(46, 48, 57)'
-            document.getElementsByClassName('lowerBox')[0].style.background = 'rgb(46, 48, 57)'
-            document.getElementsByClassName('bottomBox')[0].style.background = 'rgb(20, 20, 20)'
+            document.getElementById         ('joinHeading').style.color         = "#ffffff"
+            document.getElementById         ('brandName').style.color           = "#ffffff"
+            document.getElementsByClassName('lowerBox')[0].style.background     = 'rgb(46, 48, 57)'
+            document.getElementsByClassName('bottomBox')[0].style.background    = 'rgb(20, 20, 20)'
+            document.getElementsByClassName('upperBox')[0].style.background     = 'rgb(46, 48, 57)'
+            document.getElementsByClassName('upperDescription')[0].style.color  = '#f5f7fc'
+            document.getElementsByClassName('upperDescription')[1].style.color  = '#f5f7fc'
+            document.getElementsByClassName('alreadyRegistered')[0].style.color = '#f5f7fc'
+            document.getElementsByClassName('upperTitle')[0].style.color        = 'rgb(252, 252, 253)'
+            document.getElementsByClassName('upperTitle')[1].style.color        = 'rgb(252, 252, 253)'
+            document.getElementsByClassName('ways')[0].style.color              = 'rgb(252, 252, 253)'
+            document.getElementsByClassName('ways')[1].style.color              = 'rgb(252, 252, 253)'
 
         }
+
+        console.log('top', document.getElementsByClassName('topBox'))
 
         document.getElementsByClassName('topBox')[0].style.background  = this.growthTool.widget.primaryColor
         document.getElementsByClassName('joinBtn')[0].style.background = this.growthTool.widget.primaryColor
-        document.getElementsByClassName('upperTitle')[0].style.color   = this.growthTool.widget.primaryColor
         document.getElementsByClassName('signIn')[0].style.color       = this.growthTool.widget.primaryColor
 
     }
@@ -406,20 +419,20 @@ export class Tawk {
                          <div class="BodyB14R upperDescription" style="margin-top: 8px;" >
                              Earn more Points for different actions, and turn those Points into awesome rewards!
                          </div>
-                         <div class="d-flex space-between align-items-center" style="margin-top: 20px; margin-bottom: 20px;">
+                         <div class="d-flex cp space-between align-items-center" style="padding-top: 20px; padding-bottom: 20px; border-bottom: 0.5px solid #d6dae9;">
                              <div class="d-flex align-items-center">
-                                 <SvgIcons.WidgetEarnIcon  />
-                                 <span class="ml-8 BodyB14R">Ways to Earn</span>
+                                <img class="bottomIcon" src=${this.StarIcon} alt="" />
+                                 <span class="ml-8 BodyB14R ways">Ways to Earn</span>
                              </div>
                              <span class="flip">
                                  <SvgIcons.ArrowExpand height="13" width="13" color={formik.values.theme == 'dark' ? ColorSchemeCode.GeneralWhite : "#596173"}/>
                              </span>
                          </div>  
                          <div class="bar"></div>
-                         <div class="mt-20 d-flex space-between align-items-center">
-                             <div class="d-flex align-items-center">
-                                 <img src=${"/assets/img"} alt="" />
-                                 <span class="ml-8 BodyB14R">Ways to Redeem</span>
+                         <div class="d-flex cp space-between align-items-center" style="margin-top:20px;">
+                             <div class="d-flex align-items-center ">
+                                 <img class="bottomIcon" src=${this.GiftIcon} alt="" />
+                                 <span class="ml-8 BodyB14R ways">Ways to Redeem</span>
                              </div>
                              <span class="flip">
                                  <SvgIcons.ArrowExpand height="13" width="13" />
