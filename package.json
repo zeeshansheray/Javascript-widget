@@ -1,0 +1,19 @@
+{
+  "name": "tawk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "cp -R src/assets dist/assets && parcel serve src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "parcel": "^1.12.3"
+  }
+}
