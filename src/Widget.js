@@ -340,7 +340,6 @@ export class Widget {
             document.getElementsByClassName('upperTitle')[1].style.color        = 'rgb(20, 21, 25)'
             document.getElementById         ('arrow1').style.stroke             = '#596173'
             document.getElementById         ('arrow2').style.stroke             = '#596173'
-            
         }
 
         else{
