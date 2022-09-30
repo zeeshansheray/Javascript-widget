@@ -1,5 +1,5 @@
-import { Tawk } from './Tawk';
+import { Widget } from './Widget';
 
-const tawk = new Tawk({
+const widget = new Widget({
     position: 'bottom-right',
 });
